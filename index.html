@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>LÍDER DJ PRO</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside class="sidebar glass">
+    <h1>🎛️ LÍDER DJ</h1>
+
+    <input type="file" id="fileInput">
+    <button id="addTrack">Adicionar</button>
+
+    <input type="text" id="yt" placeholder="YouTube link">
+    <button id="addYT">Add YT</button>
+
+    <h3>Playlist</h3>
+    <ul id="playlist"></ul>
+
+    <button id="openScreen">Abrir Tela</button>
+
+    <input id="msg" placeholder="Mensagem">
+    <button id="sendMsg">Enviar</button>
+  </aside>
+
+  <main class="main">
+
+    <div class="deck">
+      <h2>Deck A</h2>
+      <audio id="deckA"></audio>
+    </div>
+
+    <div class="deck">
+      <h2>Deck B</h2>
+      <audio id="deckB"></audio>
+    </div>
+
+    <div class="mixer glass">
+      <label>Crossfade</label>
+      <input type="range" id="cross" min="0" max="1" step="0.01">
+    </div>
+
+    <canvas id="viz"></canvas>
+
+  </main>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
