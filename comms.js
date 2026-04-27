@@ -1,9 +1,5 @@
-const channel = new BroadcastChannel("dj_channel");
+const channel = new BroadcastChannel("lider_dj");
 
-function send(type, data){
-  channel.postMessage({type, data});
+function send(type,data){
+  channel.postMessage({type,data});
 }
-
-channel.onmessage = (e)=>{
-  console.log("Recebido:", e.data);
-};
