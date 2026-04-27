@@ -1,17 +1,27 @@
-const ctx = new AudioContext();
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
 let gainA = ctx.createGain();
 let gainB = ctx.createGain();
+let master = ctx.createGain();
 
-function connect(audioA, audioB){
-  const srcA = ctx.createMediaElementSource(audioA);
-  const srcB = ctx.createMediaElementSource(audioB);
+gainA.connect(master);
+gainB.connect(master);
+master.connect(ctx.destination);
 
-  srcA.connect(gainA).connect(ctx.destination);
-  srcB.connect(gainB).connect(ctx.destination);
+function connectDecks(a, b){
+  const srcA = ctx.createMediaElementSource(a);
+  const srcB = ctx.createMediaElementSource(b);
+
+  srcA.connect(gainA);
+  srcB.connect(gainB);
 }
 
-function crossfade(value){
-  gainA.gain.value = 1 - value;
-  gainB.gain.value = value;
+function crossfade(x){
+  // equal power curve
+  gainA.gain.value = Math.cos(x * 0.5 * Math.PI);
+  gainB.gain.value = Math.cos((1 - x) * 0.5 * Math.PI);
+}
+
+function setMaster(v){
+  master.gain.value = v;
 }
