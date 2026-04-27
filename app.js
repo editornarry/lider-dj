@@ -1,10 +1,14 @@
 const deckA = document.getElementById("deckA");
 const deckB = document.getElementById("deckB");
 
-connect(deckA, deckB);
+connectDecks(deckA, deckB);
 
 document.getElementById("cross").oninput = e=>{
   crossfade(e.target.value);
+};
+
+document.getElementById("master").oninput = e=>{
+  setMaster(e.target.value);
 };
 
 document.getElementById("openScreen").onclick = ()=>{
