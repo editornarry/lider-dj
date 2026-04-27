@@ -1,0 +1,16 @@
+<body style="background:black;color:white;display:flex;justify-content:center;align-items:center;flex-direction:column;">
+
+<h1 id="music">Aguardando...</h1>
+<h2 id="msg"></h2>
+
+<script>
+const ch = new BroadcastChannel("dj_channel");
+
+ch.onmessage = e=>{
+  if(e.data.type==="msg"){
+    document.getElementById("msg").innerText = e.data.data;
+  }
+};
+</script>
+
+</body>
