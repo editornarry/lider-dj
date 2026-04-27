@@ -1,12 +1,15 @@
-<body style="background:black;color:white;display:flex;justify-content:center;align-items:center;flex-direction:column;">
+<body style="margin:0;background:black;color:white;display:flex;justify-content:center;align-items:center;flex-direction:column;overflow:hidden;">
 
-<h1 id="music">Aguardando...</h1>
-<h2 id="msg"></h2>
+<h1 id="music" style="font-size:50px;"></h1>
+<h2 id="msg" style="color:cyan;"></h2>
 
 <script>
-const ch = new BroadcastChannel("dj_channel");
+const ch = new BroadcastChannel("lider_dj");
 
 ch.onmessage = e=>{
+  if(e.data.type==="music"){
+    document.getElementById("music").innerText = e.data.data;
+  }
   if(e.data.type==="msg"){
     document.getElementById("msg").innerText = e.data.data;
   }
