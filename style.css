@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background: radial-gradient(circle at top, #0a0f2c, #000);
+  color: white;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0,255,255,0.2);
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+  border-radius: 12px;
+}
+
+.sidebar {
+  padding: 20px;
+}
+
+button {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  background: linear-gradient(45deg, #00f, #0ff);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px cyan;
+}
+
+.main {
+  padding: 20px;
+}
+
+.deck {
+  margin-bottom: 20px;
+}
+
+canvas {
+  width: 100%;
+  height: 200px;
+}
