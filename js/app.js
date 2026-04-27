@@ -18,3 +18,6 @@ document.getElementById("openScreen").onclick = ()=>{
 document.getElementById("sendMsg").onclick = ()=>{
   send("msg", document.getElementById("msg").value);
 };
+document.body.addEventListener("click", () => {
+  ctx.resume();
+}, { once: true });
